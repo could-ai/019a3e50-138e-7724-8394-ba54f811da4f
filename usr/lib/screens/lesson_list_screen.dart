@@ -1,6 +1,7 @@
 import 'package:couldai_user_app/models/category_model.dart';
 import 'package:couldai_user_app/models/lesson_model.dart';
 import 'package:couldai_user_app/screens/lesson_view_screen.dart';
+import 'package:couldai_user_app/screens/quiz_screen.dart';
 import 'package:flutter/material.dart';
 
 class LessonListScreen extends StatelessWidget {
@@ -41,6 +42,20 @@ class LessonListScreen extends StatelessWidget {
             ),
           );
         },
+      ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+           Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => QuizScreen(category: category),
+              ),
+            );
+        },
+        label: const Text('Start Quiz!', style: TextStyle(fontWeight: FontWeight.bold)),
+        icon: const Icon(Icons.quiz),
+        backgroundColor: category.color,
+        foregroundColor: Colors.white,
       ),
     );
   }
